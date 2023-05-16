@@ -10,12 +10,11 @@ public enum GeneroAnime {
 	Shounen,
 	SobreNatural,
 	Magia,
-	Manhwa,
 	Aventura,
 	Doujinshi,
 	Ecchi,
 	Psicologico,
 	Escolares, 
 	Gore,
-	Yuri
+	Deporte
 }
