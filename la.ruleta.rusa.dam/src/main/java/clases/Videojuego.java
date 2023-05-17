@@ -1,6 +1,7 @@
 package clases;
 
 import enumerations.GeneroVideojuego;
+import enumerations.Plataforma;
 import enumerations.TiendaVideojuego;
 import enumerations.TiendaVideojuegoDescuento;
 
@@ -11,15 +12,17 @@ public class Videojuego extends Obra{
 	private short tiempoEstimado;
 	private TiendaVideojuego tienda;
 	private TiendaVideojuegoDescuento tiendaDescuento;
+	private Plataforma plataforma;
 	
 	public Videojuego(String nombre, String empresa, GeneroVideojuego generoVidejuego, short tiempoEstimado,
-			TiendaVideojuego tienda, TiendaVideojuegoDescuento tiendaDescuento) {
+			TiendaVideojuego tienda, TiendaVideojuegoDescuento tiendaDescuento, Plataforma plataforma ) {
 		super(nombre);
 		this.empresa = empresa;
 		this.generoVidejuego = generoVidejuego;
 		this.tiempoEstimado = tiempoEstimado;
 		this.tienda = tienda;
 		this.tiendaDescuento = tiendaDescuento;
+		this.plataforma=plataforma;
 	}
 
 	public String getEmpresa() {
@@ -61,11 +64,20 @@ public class Videojuego extends Obra{
 	public void setTiendaDescuento(TiendaVideojuegoDescuento tiendaDescuento) {
 		this.tiendaDescuento = tiendaDescuento;
 	}
-
+	
+	public Plataforma getplataforma() {
+		return plataforma;
+	}
+	
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString()+"\tEmpresa: " + empresa + "\n\tGenero: " + generoVidejuego + "\n\tDuracion: "
-				+ tiempoEstimado + "\n\tTienda: " + tienda + "\n\tTienda con descuento: " + tiendaDescuento;
+				+ tiempoEstimado + "\n\tTienda: " + tienda + "\n\tTienda con descuento: " + tiendaDescuento+
+				"\n\tPlataforma: "+ plataforma;
 	}
 	
 	

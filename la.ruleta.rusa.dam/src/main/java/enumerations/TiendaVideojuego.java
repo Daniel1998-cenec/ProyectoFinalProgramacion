@@ -5,5 +5,6 @@ Steam,
 EpicGame,
 GogGalaxy,
 EA,
-AmazonGaming
+AmazonGaming,
+Game
 }

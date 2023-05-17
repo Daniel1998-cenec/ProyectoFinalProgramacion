@@ -131,7 +131,7 @@ public abstract class DAO {
 		}
 	}
 
-	public static ArrayList<Object> consultar(String tabla, HashSet<String> columnasSacar,
+	public static ArrayList<Object> consultar(String tabla, LinkedHashSet<String> columnasSacar,
 			HashMap<String, Object> restricciones) throws SQLException {
 		Statement smt = connect();
 		String query = "select ";
