@@ -7,16 +7,18 @@ public class Libro extends Obra{
 	private GeneroLibro genero;
 	private byte numeroSaga;
 	private String escritor;
+	private String editorial;
 	private short capitulo;
 	private short paginas;
 	
-	public Libro(String nombre, GeneroLibro genero, byte numeroSaga, String escritor, short capitulo, short paginas) {
+	public Libro(String nombre, GeneroLibro genero, byte numeroSaga, String escritor, short capitulo, short paginas,String editorial) {
 		super(nombre);
 		this.genero = genero;
 		this.numeroSaga = numeroSaga;
 		this.escritor = escritor;
 		this.capitulo = capitulo;
 		this.paginas = paginas;
+		this.editorial=editorial;
 	}
 
 	public GeneroLibro getGenero() {
@@ -58,10 +60,18 @@ public class Libro extends Obra{
 	public void setPaginas(short paginas) {
 		this.paginas = paginas;
 	}
+	
+	public String getEditorial() {
+		return editorial;
+	}
+	
+	public void setEditorial(String editorial){
+		this.editorial = editorial;	
+	}
 
 	@Override
 	public String toString() {
-		return "\tGenero: " + genero + "\n\tNumero de saga: " + numeroSaga + "\n\tEscritor: " + escritor + "\n\tCapitulo: " + capitulo
+		return super.toString()+"\n\tEscritor: " + escritor+"\n\tEditorial: "+editorial+"\tGenero: " + genero +"\n\tNumero de saga: " + numeroSaga  + "\n\tCapitulo: " + capitulo
 				+ "\n\tPaginas totales:" + paginas;
 	}
 	

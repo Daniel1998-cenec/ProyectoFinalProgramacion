@@ -78,6 +78,7 @@ public class RuletaRusa {
 		restricciones.put("genero", ga);
 		try {
 			ArrayList<Object> animes=DAO.consultar("anime", columnas, restricciones);
+			
 			//Te devuelve el valor de todas las columnas de todos los animes, con esas columnas, construye un 
 			//treeset<Anime> y lo devuelves
 			return null; //no es null, es el treeset<Anime>

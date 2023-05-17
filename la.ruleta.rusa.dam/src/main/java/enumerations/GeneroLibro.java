@@ -4,14 +4,16 @@ public enum GeneroLibro {
 	Comedia,
 	Crimen,
 	Thriller,
-	Aventura,
+	Suspense,
 	Deporte,
-	Accion,
+	Novela,
 	Detective,
 	Horror,
 	Drama,
 	Guerra,
 	Romance,
 	Misterio,
-	Culto
+	Culto,
+	Ficcion,
+	Aventura
 }

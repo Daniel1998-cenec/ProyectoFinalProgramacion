@@ -1,14 +1,15 @@
-/*create database ruletarusadam;
+create database ruletarusadam;
 
 use ruletarusadam;
 
 create table pelicula (
-nombre varchar (150) primary key,
+nombre varchar (150),
+director varchar(150),
 duracion int,
 streaming varchar(150),
-director varchar(150),
 genero varchar(150),
-parte int
+parte int,
+primary key(nombre, director)
 );
 
 insert into pelicula values("Guardianes de la galaxia volumen 3","150","DisneyPlus", "James Gunn", "Accion", "3");
@@ -76,14 +77,23 @@ insert into manga values("Monster Hunter Flash","Shin Yamamoto", "Fantasia", "10
 insert into manga values("Zatch Bell","Makoto Raiku", "Comedia", "33", "323", "true");
 insert into manga values("Black Clover","Yūki Tabata", "Shounen", "34", "358", "false");
 insert into manga values("Jujutsu Kaisen","Gege Akutami", "Shounen", "22", "222", "false");
-insert into manga values("Chainsaw Man","Tatsuki Fujimoto", "Shounen", "12", "129", "false");*/
+insert into manga values("Chainsaw Man","Tatsuki Fujimoto", "Shounen", "12", "129", "false");
 
-create table libro(
-nombre varchar (150) primary key,
-saga int,
-escritor varchar(150),
-capitulos int,
-pagina int
+create table libro (
+  nombre varchar(150),
+  escritor varchar(150),
+  editorial varchar(150),
+  genero varchar(150),
+  saga int,
+  capitulos int,
+  pagina int,
+  primary key(nombre, escritor)
 );
+
+insert into libro values("El árbol de la ciencia", "Pío Baroja", "catedra","Novela","2","53","272" );
+insert into libro values("El mundo de sofía", "Jostein Gaarder", "Siruela","Culto","0", "35","638");
+insert into libro values("La joven de las naranjas", "Jostein Gaarder","SIRUELA","Ficcion", "0","18","192" );
+insert into libro values("Los juegos del hambre", "Suzanne Collins", "MOLINO", "Suspense", "4","19","374");
+insert into libro values("Harry potter y la piedra filosofal", "J. K. Rowling", "Salamandra", "Aventura", "7", "17","309");
 
 /*drop database if exists ruletarusadam;*/
