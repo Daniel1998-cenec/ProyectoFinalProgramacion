@@ -1,10 +1,10 @@
 package enumerations;
 
 public enum TiendaVideojuego {
-Steam,
-EpicGame,
-GogGalaxy,
+STEAM,
+EPICGAME,
+GOGGALAXY,
 EA,
-AmazonGaming,
-Game
+AMAZONGAMING,
+GAME
 }

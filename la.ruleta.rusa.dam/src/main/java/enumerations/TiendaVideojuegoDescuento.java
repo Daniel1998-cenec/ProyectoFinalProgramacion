@@ -1,10 +1,10 @@
 package enumerations;
 
 public enum TiendaVideojuegoDescuento {
-	Instagaming,
+	INSTAGAMING,
 	G2A,
-	Eneba,
-	Gamivo,
-	Kinguin,
+	ENEBA,
+	GAMIVO,
+	KINGUIN,
 	K4G
 }

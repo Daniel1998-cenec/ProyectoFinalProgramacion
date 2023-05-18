@@ -1,10 +1,10 @@
 package enumerations;
 
 public enum Streaming {
-AnimeFlv,
-Netflix,
+ANIMEFLV,
+NETFLIX,
 HBO,
-AmazonPrime,
-DisneyPlus,
-Crunchyroll
+AMAZONPRIME,
+DISNEYPLUS,
+CRUNCHYROLL
 }
