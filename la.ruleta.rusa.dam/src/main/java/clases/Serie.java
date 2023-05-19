@@ -3,7 +3,7 @@ package clases;
 import enumerations.GeneroSerie;
 import enumerations.Streaming;
 
-public class Serie extends Direccion {
+public class Serie extends Direccion implements Comparable<String>{
 	
 	private GeneroSerie generoSerie;
 
@@ -24,6 +24,11 @@ public class Serie extends Direccion {
 	@Override
 	public String toString() {
 		return super.toString()+"\tGenero: " + generoSerie;
+	}
+
+	@Override
+	public int compareTo(String o) {
+		return this.getNombre().compareTo(o);
 	}
 	
 	

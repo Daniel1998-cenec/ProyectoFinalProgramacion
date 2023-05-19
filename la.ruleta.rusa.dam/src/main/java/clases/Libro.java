@@ -2,7 +2,7 @@ package clases;
 
 import enumerations.GeneroLibro;
 
-public class Libro extends Obra{
+public class Libro extends Obra implements Comparable<String>{
 	
 	private GeneroLibro genero;
 	private byte numeroSaga;
@@ -75,5 +75,8 @@ public class Libro extends Obra{
 				+ "\n\tPaginas totales:" + paginas;
 	}
 	
-	
+	@Override
+	public int compareTo(String o) {
+		return this.getNombre().compareTo(o);
+	}
 }

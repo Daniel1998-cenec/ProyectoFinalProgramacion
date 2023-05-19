@@ -4,7 +4,7 @@ import enumerations.GeneroVideojuego;
 import enumerations.TiendaVideojuego;
 import enumerations.TiendaVideojuegoDescuento;
 
-public class Videojuego extends Obra{
+public class Videojuego extends Obra implements Comparable<String>{
 	
 	private String empresa;
 	private GeneroVideojuego generoVidejuego;
@@ -77,6 +77,11 @@ public class Videojuego extends Obra{
 		return super.toString()+"\tEmpresa: " + empresa + "\n\tGenero: " + generoVidejuego + "\n\tDuracion: "
 				+ tiempoEstimado + "\n\tTienda: " + tienda + "\n\tTienda con descuento: " + tiendaDescuento+
 				"\n\tPlataforma: "+ plataforma;
+	}
+
+	@Override
+	public int compareTo(String o) {
+		return this.getNombre().compareTo(o);
 	}
 	
 	

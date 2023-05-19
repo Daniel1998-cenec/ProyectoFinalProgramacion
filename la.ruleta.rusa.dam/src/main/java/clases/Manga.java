@@ -2,7 +2,7 @@ package clases;
 
 import enumerations.GeneroManga;
 
-public class Manga extends Obra{
+public class Manga extends Obra implements Comparable<String>{
 	
 	private GeneroManga generoManga;
 	private byte numeroTomos;
@@ -63,6 +63,11 @@ public class Manga extends Obra{
 	public String toString() {
 		return super.toString()+"\n\tAutor: "+autor+"\tGenero: " + generoManga + "\n\tNumero de tomos: " + numeroTomos+
 				"\n\tCapitulos: "+capitulos+"\n\tEn curso: "+enCurso;
+	}
+
+	@Override
+	public int compareTo(String o) {
+		return this.getNombre().compareTo(o);
 	}
 	
 	

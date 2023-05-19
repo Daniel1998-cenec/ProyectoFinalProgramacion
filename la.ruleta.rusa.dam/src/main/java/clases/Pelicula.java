@@ -3,7 +3,7 @@ package clases;
 import enumerations.GeneroPelicula;
 import enumerations.Streaming;
 
-public class Pelicula extends Estudio{
+public class Pelicula extends Estudio implements Comparable<String>{
 	
 	private String director;
 	private GeneroPelicula generoPelicula;
@@ -44,6 +44,11 @@ public class Pelicula extends Estudio{
 	@Override
 	public String toString() {
 		return super.toString()+"\tDirector: " + director + "\n\tGenero: " + generoPelicula + "\n\tParte: " + parte + "\n";
+	}
+
+	@Override
+	public int compareTo(String o) {
+		return this.getNombre().compareTo(o);
 	}
 	
 	
