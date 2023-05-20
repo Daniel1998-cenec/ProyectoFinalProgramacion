@@ -1,12 +1,10 @@
 package la.ruleta.rusa.dam;
 
-import java.util.TreeSet;
-
-import clases.Anime;
-import excepciones.AnimeException;
+import interfaces.Ventana;
 
 public class Principal {
 
 	public static void main(String[] args) {
+		Ventana v=new Ventana();
 	}
 }
