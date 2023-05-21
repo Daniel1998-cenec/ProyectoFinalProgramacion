@@ -42,73 +42,43 @@ import javax.swing.BoxLayout;
 import javax.swing.JPasswordField;
 
 public class PantallaLogin extends JPanel {
-	private JTextField textBienvenido;
 	private JTextField textLogin;
 	private JPasswordField passwordField;
 	private Ventana ventana;
 
 	public PantallaLogin(Ventana v) {
 		this.ventana = v;
-		setBackground(new Color(245, 245, 220));
+		setBackground(Color.LIGHT_GRAY);
 		setForeground(new Color(216, 191, 216));
 		setBorder(new EmptyBorder(0, 0, 0, 0));
-		setLayout(null);
-
-		JCheckBox CheckBox = new JCheckBox("Check");
-		CheckBox.setBounds(325, 325, 82, 25);
-		CheckBox.setHorizontalAlignment(SwingConstants.CENTER);
-		CheckBox.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		add(CheckBox);
-
-		textBienvenido = new JTextField();
-		textBienvenido.setEnabled(false);
-		textBienvenido.setBounds(196, 62, 197, 43);
-		textBienvenido.setText("¡¡Bienvenido!!");
-		textBienvenido.setForeground(Color.RED);
-		textBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 30));
-
-		textBienvenido.setColumns(10);
-		add(textBienvenido);
-
-		JButton ButtonAceptar = new JButton("Aceptar");
-		ButtonAceptar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				String usuario=textLogin.getText();
-				String contraseña=new String(passwordField.getPassword());
-				System.out.println(usuario+ " : "+contraseña);
-				try {
-					ventana.usuarioLogado=new Usuario(usuario, contraseña);
-					JOptionPane.showMessageDialog(ventana,"Bienvenid@, "
-							+ventana.usuarioLogado.getNick(), "Inicio de sesión exitoso",
-							JOptionPane.INFORMATION_MESSAGE);
-					ventana.cambiarPantalla(PantallaRuletaRusa.class);
-				} catch (UsuarioNoExisteException e1) {
-					JOptionPane.showMessageDialog(ventana,e1.getMessage(), "Login fallido",
-					JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					JOptionPane.showMessageDialog(ventana,"El cliente no existe","Login fallido",
-							JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				} catch (ContraseñaInvalidaException e1) {
-					JOptionPane.showMessageDialog(ventana,"La contraseña no es correcta", "Login fallido",
-							JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				}
-			}
-		});
-		ButtonAceptar.setBounds(174, 320, 105, 31);
-		ButtonAceptar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		add(ButtonAceptar);
+		setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JLabel LabelPantallaRegistro = new JLabel("PantallaRegistro");
+		LabelPantallaRegistro.setHorizontalAlignment(SwingConstants.CENTER);
+		LabelPantallaRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		add(LabelPantallaRegistro);
+		
+		JLabel labelDescripcion = new JLabel("Disfruta de la experiencia, la\"Ruleta Rusa\"");
+		labelDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		add(labelDescripcion);
+		
+		JLabel LabelEmail = new JLabel("Correo");
+		LabelEmail.setBackground(new Color(255, 128, 128));
+		LabelEmail.setForeground(Color.MAGENTA);
+		LabelEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		add(LabelEmail);
 
 		textLogin = new JTextField();
-		textLogin.setBounds(311, 159, 141, 35);
 		add(textLogin);
 		textLogin.setColumns(10);
+		
+		JLabel LabelPass = new JLabel("Contraseña");
+		LabelPass.setBackground(Color.MAGENTA);
+		LabelPass.setForeground(Color.MAGENTA);
+		LabelPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		add(LabelPass);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(311, 230, 141, 30);
 		add(passwordField);
 
 		JButton Registro = new JButton("Registro");
@@ -118,23 +88,39 @@ public class PantallaLogin extends JPanel {
 				ventana.cambiarPantalla(PantallaRegistro.class);
 			}
 		});
+		
+				JButton ButtonAceptar = new JButton("Aceptar");
+				ButtonAceptar.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						String usuario=textLogin.getText();
+						String contraseña=new String(passwordField.getPassword());
+						System.out.println(usuario+ " : "+contraseña);
+						try {
+							ventana.usuarioLogado=new Usuario(usuario, contraseña);
+							JOptionPane.showMessageDialog(ventana,"Bienvenid@, "
+									+ventana.usuarioLogado.getNick(), "Inicio de sesión exitoso",
+									JOptionPane.INFORMATION_MESSAGE);
+							ventana.cambiarPantalla(PantallaRuletaRusa.class);
+						} catch (UsuarioNoExisteException e1) {
+							JOptionPane.showMessageDialog(ventana,e1.getMessage(), "Login fallido",
+							JOptionPane.ERROR_MESSAGE);
+							e1.printStackTrace();
+						} catch (SQLException e1) {
+							JOptionPane.showMessageDialog(ventana,"El cliente no existe","Login fallido",
+									JOptionPane.ERROR_MESSAGE);
+							e1.printStackTrace();
+						} catch (ContraseñaInvalidaException e1) {
+							JOptionPane.showMessageDialog(ventana,"La contraseña no es correcta", "Login fallido",
+									JOptionPane.ERROR_MESSAGE);
+							e1.printStackTrace();
+						}
+					}
+				});
+				ButtonAceptar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				add(ButtonAceptar);
 		Registro.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		Registro.setBounds(245, 389, 117, 51);
 		add(Registro);
-		
-		JLabel BotonLogin = new JLabel("Email");
-		BotonLogin.setBackground(new Color(255, 128, 128));
-		BotonLogin.setForeground(Color.MAGENTA);
-		BotonLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		BotonLogin.setBounds(50, 158, 182, 29);
-		add(BotonLogin);
-		
-		JLabel BotonPass = new JLabel("Pass");
-		BotonPass.setBackground(Color.PINK);
-		BotonPass.setForeground(Color.MAGENTA);
-		BotonPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		BotonPass.setBounds(50, 229, 169, 25);
-		add(BotonPass);
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {

@@ -1,4 +1,4 @@
-create database ruletarusadam;
+/*create database ruletarusadam;
 
 use ruletarusadam;
 
@@ -95,5 +95,11 @@ insert into libro values("El mundo de sofía", "Jostein Gaarder", "Siruela","CUL
 insert into libro values("La joven de las naranjas", "Jostein Gaarder","SIRUELA","FICCION", "0","18","192" );
 insert into libro values("Los juegos del hambre", "Suzanne Collins", "MOLINO", "SUSPENSE", "4","19","374");
 insert into libro values("Harry potter y la piedra filosofal", "J. K. Rowling", "Salamandra", "AVENTURA", "7", "17","309");
+
+create table user(
+ email varchar(150) primary key,
+ pass varchar(50),
+ nick varchar(50)
+);
 
 /*drop database if exists ruletarusadam;*/

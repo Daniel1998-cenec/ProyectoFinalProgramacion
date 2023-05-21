@@ -51,7 +51,7 @@ public class PantallaRegistro extends JPanel {
 		gbc_registrate.gridy = 0;
 		add(registrate, gbc_registrate);
 		
-		JLabel email = new JLabel("Email");
+		JLabel email = new JLabel("Correo");
 		GridBagConstraints gbc_email = new GridBagConstraints();
 		gbc_email.anchor = GridBagConstraints.EAST;
 		gbc_email.insets = new Insets(0, 0, 5, 5);
@@ -69,7 +69,7 @@ public class PantallaRegistro extends JPanel {
 		add(textEmail, gbc_textEmail);
 		textEmail.setColumns(10);
 		
-		JLabel nick = new JLabel("Nick");
+		JLabel nick = new JLabel("Nombre");
 		GridBagConstraints gbc_nick = new GridBagConstraints();
 		gbc_nick.anchor = GridBagConstraints.EAST;
 		gbc_nick.insets = new Insets(0, 0, 5, 5);
@@ -87,7 +87,7 @@ public class PantallaRegistro extends JPanel {
 		add(textNick, gbc_textNick);
 		textNick.setColumns(10);
 		
-		JLabel pass = new JLabel("pass");
+		JLabel pass = new JLabel("Contraseña");
 		GridBagConstraints gbc_pass = new GridBagConstraints();
 		gbc_pass.anchor = GridBagConstraints.EAST;
 		gbc_pass.insets = new Insets(0, 0, 5, 5);

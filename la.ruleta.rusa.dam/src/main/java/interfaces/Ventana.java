@@ -10,7 +10,7 @@ public class Ventana extends JFrame {
 	
 	public Ventana() {
 		this.setSize(600,500);
-		this.setTitle("Programa de prueba de clase");
+		this.setTitle("Proyecto Final Ruleta Rusa");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setContentPane(new PantallaLogin(this));
@@ -22,6 +22,7 @@ public class Ventana extends JFrame {
 		if(clase.equals(PantallaLogin.class)) {
 			this.setContentPane(new PantallaLogin(this));
 		}
+		
 		if(clase.equals(PantallaRegistro.class)) {
 			this.setContentPane(new PantallaRegistro(this));
 		}
