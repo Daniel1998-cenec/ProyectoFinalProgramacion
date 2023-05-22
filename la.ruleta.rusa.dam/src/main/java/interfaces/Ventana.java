@@ -27,7 +27,7 @@ public class Ventana extends JFrame {
 			this.setContentPane(new PantallaRegistro(this));
 		}
 		if(clase.equals(PantallaRuletaRusa.class)) {
-			this.setContentPane(new PantallaRuletaRusa(this));
+			this.setContentPane(new PantallaRuletaRusa());
 			}
 		this.getContentPane().setVisible(true);
 	}

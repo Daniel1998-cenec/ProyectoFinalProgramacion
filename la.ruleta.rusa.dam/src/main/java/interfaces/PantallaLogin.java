@@ -90,6 +90,11 @@ public class PantallaLogin extends JPanel {
 		});
 		
 				JButton ButtonAceptar = new JButton("Aceptar");
+				ButtonAceptar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
 				ButtonAceptar.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
