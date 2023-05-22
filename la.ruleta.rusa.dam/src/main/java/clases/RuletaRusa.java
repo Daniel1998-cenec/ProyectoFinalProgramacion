@@ -34,13 +34,25 @@ public class RuletaRusa {
 
 	// Devuelve todo
 	public ArrayList<Obra> devolverTodo() {
-		//Nose como devolver todo de una.
+		 /*LinkedHashSet<String> columnasSacar = new LinkedHashSet<>();
+		   columnasSacar.add("email");
+		   columnasSacar.add("telefono");
+		   columnasSacar.add("nombre");
+		   HashMap<String,Object> restricciones = new HashMap<>();
+		   ArrayList<Cliente> clientes = new ArrayList<>();
+		   ArrayList<Object> listaClientes= new ArrayList<>();
+		   listaClientes=DAO.consultar("cliente", columnasSacar, restricciones);
+		   for(byte i =0;i<listaClientes.size();i+=3) {
+			   Cliente cliente = new Cliente((String)listaClientes.get(i),(String)listaClientes.get(i+2),(int)listaClientes.get(i+1),false);
+		   clientes.add(cliente);
+		   }
+		   return clientes;*/
 		return null;
 	}
 
 	// Devuelve Obras por separado
 
-	public TreeSet<Libro> devolverLibros() throws LibroException {
+	public TreeSet<Libro> devolverLibros(String nombre, String escritor) throws LibroException {
 
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
@@ -51,7 +63,8 @@ public class RuletaRusa {
 		columnas.add("capitulos");
 		columnas.add("pagina");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-
+		restricciones.put("nombre", nombre);
+		restricciones.put("escritor", escritor);
 		try {
 			ArrayList<Object> libros = DAO.consultar("libro", columnas, restricciones);
 			TreeSet<Libro> l = new TreeSet<Libro>();
@@ -64,7 +77,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Videojuego> devolvervideojuego() throws VidejuegoException {
+	public TreeSet<Videojuego> devolvervideojuego(String nombre) throws VidejuegoException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("empresa");
@@ -74,7 +87,7 @@ public class RuletaRusa {
 		columnas.add("tiendaDescuento");
 		columnas.add("plataforma");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-
+		restricciones.put("nombre", nombre);
 		try {
 			ArrayList<Object> videojuegos = DAO.consultar("videojuego", columnas, restricciones);
 			TreeSet<Videojuego> v = new TreeSet<Videojuego>();
@@ -87,7 +100,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Manga> devolverManga() throws MangaException {
+	public TreeSet<Manga> devolverManga(String nombre) throws MangaException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("autor");
@@ -96,7 +109,8 @@ public class RuletaRusa {
 		columnas.add("capitulos");
 		columnas.add("enCurso");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-
+		restricciones.put("nombre", nombre);
+		
 		try {
 			ArrayList<Object> mangas = DAO.consultar("manga", columnas, restricciones);
 			TreeSet<Manga> m = new TreeSet<Manga>();
@@ -109,7 +123,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Pelicula> devolverPelicula() throws PeliculaException {
+	public TreeSet<Pelicula> devolverPelicula(String nombre, String director) throws PeliculaException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -118,6 +132,9 @@ public class RuletaRusa {
 		columnas.add("genero");
 		columnas.add("parte");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
+		restricciones.put("nombre", nombre);
+		restricciones.put("director", director);
+		
 		try {
 			ArrayList<Object> peliculas = DAO.consultar("pelicula", columnas, restricciones);
 			TreeSet<Pelicula> p = new TreeSet<Pelicula>();
@@ -131,7 +148,7 @@ public class RuletaRusa {
 		
 	}
 
-	public TreeSet<Anime> devolverAnime() throws AnimeException {
+	public TreeSet<Anime> devolverAnime(String nombre) throws AnimeException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -140,7 +157,8 @@ public class RuletaRusa {
 		columnas.add("episodios");
 		columnas.add("genero");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-
+		restricciones.put("nombre", nombre);
+		
 		try {
 			ArrayList<Object> animes = DAO.consultar("anime", columnas, restricciones);
 			TreeSet<Anime> a = new TreeSet<Anime>();
@@ -153,7 +171,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Serie> devolverSerie() throws SerieException{
+	public TreeSet<Serie> devolverSerie(String nombre) throws SerieException{
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -162,6 +180,7 @@ public class RuletaRusa {
 		columnas.add("episodios");
 		columnas.add("genero");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
+		restricciones.put("nombre", nombre);
 		
 		try {
 			ArrayList<Object> series = DAO.consultar("serie", columnas, restricciones);
@@ -187,7 +206,7 @@ public class RuletaRusa {
 		columnas.add("genero");
 
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		restricciones.put("genero", ga);
+		restricciones.put("genero", ga.toString());
 
 		try {
 			ArrayList<Object> animes = DAO.consultar("anime", columnas, restricciones);
@@ -213,7 +232,7 @@ public class RuletaRusa {
 		columnas.add("pagina");
 		
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		restricciones.put("genero", gl);
+		restricciones.put("genero", gl.toString());
 		
 		try {
 			ArrayList<Object> libros = DAO.consultar("libro", columnas, restricciones);
@@ -237,7 +256,7 @@ public class RuletaRusa {
 		columnas.add("tiendaDescuento");
 		columnas.add("plataforma");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		restricciones.put("genero", gv);
+		restricciones.put("genero", gv.toString());
 		
 		try {
 			ArrayList<Object> videojuegos = DAO.consultar("videojuego", columnas, restricciones);
@@ -260,7 +279,7 @@ public class RuletaRusa {
 		columnas.add("capitulos");
 		columnas.add("enCurso");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		restricciones.put("genero", gm);
+		restricciones.put("genero", gm.toString());
 		
 		try {
 			ArrayList<Object> mangas = DAO.consultar("manga", columnas, restricciones);
@@ -283,7 +302,7 @@ public class RuletaRusa {
 		columnas.add("genero");
 		columnas.add("parte");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		restricciones.put("genero", gp);
+		restricciones.put("genero", gp.toString());
 		
 		try {
 			ArrayList<Object> peliculas = DAO.consultar("pelicula", columnas, restricciones);
@@ -306,7 +325,7 @@ public class RuletaRusa {
 		columnas.add("episodios");
 		columnas.add("genero");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
-		restricciones.put("genero", gs);
+		restricciones.put("genero", gs.toString());
 		
 		try {
 			ArrayList<Object> series = DAO.consultar("serie", columnas, restricciones);
