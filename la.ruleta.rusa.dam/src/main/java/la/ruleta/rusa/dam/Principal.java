@@ -6,16 +6,20 @@ import java.util.TreeSet;
 import clases.Libro;
 import clases.Obra;
 import clases.RuletaRusa;
+import clases.Serie;
+import enumerations.GeneroSerie;
+import excepciones.GeneroSerieException;
 import excepciones.LibroException;
+import excepciones.SerieException;
 import interfaces.Ventana;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		Ventana v=new Ventana();
+		/*Ventana v=new Ventana();*/
 		
 		
-		/*TreeSet<Libro> todo=new TreeSet<Libro>();
+		ArrayList<Libro> todo=new ArrayList<Libro>();
 		try {
 			todo=RuletaRusa.devolverLibros();
 		} catch (LibroException e) {
@@ -23,6 +27,6 @@ public class Principal {
 			e.printStackTrace();
 		}
 		
-		System.out.println(todo);*/
+		System.out.println(todo);
 	}
 }

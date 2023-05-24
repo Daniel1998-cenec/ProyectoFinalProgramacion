@@ -10,7 +10,7 @@ public class Manga extends Obra implements Comparable<String>{
 	private short capitulos;
 	private boolean enCurso;
 	
-	public Manga(String nombre, GeneroManga generoManga, byte numeroTomos,String autor, short capitulos, boolean enCurso) {
+	public Manga(String nombre, String autor, GeneroManga generoManga, byte numeroTomos, short capitulos, boolean enCurso) {
 		super(nombre);
 		this.generoManga = generoManga;
 		this.numeroTomos = numeroTomos;

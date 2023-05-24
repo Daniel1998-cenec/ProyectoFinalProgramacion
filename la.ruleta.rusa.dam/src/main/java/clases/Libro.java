@@ -11,7 +11,8 @@ public class Libro extends Obra implements Comparable<String>{
 	private short capitulo;
 	private short paginas;
 	
-	public Libro(String nombre, GeneroLibro genero, byte numeroSaga, String escritor, short capitulo, short paginas,String editorial) {
+	public Libro(String nombre, String escritor,String editorial, 
+			GeneroLibro genero, byte numeroSaga,  short capitulo, short paginas) {
 		super(nombre);
 		this.genero = genero;
 		this.numeroSaga = numeroSaga;
@@ -71,7 +72,7 @@ public class Libro extends Obra implements Comparable<String>{
 
 	@Override
 	public String toString() {
-		return super.toString()+"\n\tEscritor: " + escritor+"\n\tEditorial: "+editorial+"\tGenero: " + genero +"\n\tNumero de saga: " + numeroSaga  + "\n\tCapitulo: " + capitulo
+		return "\n\n"+this.getNombre()+"\n"+"\n\tEscritor: " + escritor+"\n\tEditorial: "+editorial+"\n\tGenero: " + genero +"\n\tNumero de saga: " + numeroSaga  + "\n\tCapitulo: " + capitulo
 				+ "\n\tPaginas totales:" + paginas;
 	}
 	

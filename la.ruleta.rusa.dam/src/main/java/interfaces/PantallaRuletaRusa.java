@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class PantallaRuletaRusa extends JPanel implements ActionListener {
     private JButton btnGirar;
@@ -77,8 +78,8 @@ public class PantallaRuletaRusa extends JPanel implements ActionListener {
         } else if (e.getSource() == timer) {
             angle += 5;
             repaint();
-
-            if (angle >= 360) {
+            Random r=new Random();
+            if (angle >= r.nextInt(720,10000)) {
                 timer.stop();
                 btnGirar.setEnabled(true);
 

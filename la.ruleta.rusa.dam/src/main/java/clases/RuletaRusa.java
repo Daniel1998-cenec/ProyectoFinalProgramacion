@@ -3,9 +3,8 @@ package clases;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.TreeSet;
 
 import enumerations.GeneroAnime;
@@ -14,6 +13,7 @@ import enumerations.GeneroManga;
 import enumerations.GeneroPelicula;
 import enumerations.GeneroSerie;
 import enumerations.GeneroVideojuego;
+import enumerations.Streaming;
 import excepciones.AnimeException;
 import excepciones.GeneroAnimeException;
 import excepciones.GeneroLibroException;
@@ -36,9 +36,9 @@ public class RuletaRusa {
 	public static ArrayList<Obra> devolverTodo() {
 		
 		
-		 /*TreeSet<Obra> coleccionObras= new TreeSet <Obra>();
+		 TreeSet<Obra> coleccionObras= new TreeSet <Obra>();
 		 
-			try {
+			/*try {
 				coleccionObras.addAll(devolverLibros());
 				coleccionObras.addAll(devolvervideojuego());
 				coleccionObras.addAll(devolverManga());
@@ -58,7 +58,7 @@ public class RuletaRusa {
 
 	// Devuelve Obras por separado
 
-	public static TreeSet<Libro> devolverLibros() throws LibroException {
+	public static ArrayList<Libro> devolverLibros() throws LibroException {
 
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
@@ -72,17 +72,25 @@ public class RuletaRusa {
 		
 		try {
 			ArrayList<Object> libros = DAO.consultar("libro", columnas, restricciones);
-			TreeSet<Libro> l = new TreeSet<Libro>();
-			for (byte i = 0; i < libros.size(); i++) {
-				l.add((Libro) libros.get(i));
+			//Si uso el TreeSet me peta
+			//TreeSet<Libro> l = new TreeSet<Libro>();
+			//Si uso ArrayList no me peta.
+			ArrayList<Libro> l2 = new ArrayList<Libro>();
+			for (byte i = 0; i < libros.size(); i+=7) {
+				
+			Libro a=new Libro(libros.get(i) + "",libros.get(i+1)+ "",
+					libros.get(i+2) + "", GeneroLibro.valueOf(libros.get(i+3) + ""),
+					 Byte.parseByte(libros.get(i+4) + ""),Short.parseShort(libros.get(i+5) + ""),Short.parseShort(libros.get(i+6) + ""));
+			
+				l2.add(a);
 			}
-			return l;
+			return l2;
 		} catch (SQLException e) {
 			throw new LibroException("Error al consultar con los libros");
 		}
 	}
 
-	public static TreeSet<Videojuego> devolvervideojuego() throws VidejuegoException {
+	public static ArrayList<Videojuego> devolvervideojuego() throws VidejuegoException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("empresa");
@@ -96,8 +104,11 @@ public class RuletaRusa {
 		
 		try {
 			ArrayList<Object> videojuegos = DAO.consultar("videojuego", columnas, restricciones);
-			TreeSet<Videojuego> v = new TreeSet<Videojuego>();
-			for (byte i = 0; i < videojuegos.size(); i++) {
+			ArrayList<Videojuego> v = new ArrayList<Videojuego>();
+			for (byte i = 0; i < videojuegos.size(); i+=8) {
+				Videojuego v= new Videojuego(videojuegos.get(i)+"",videojuegos.get(i+1)+"",GeneroVideojuego.valueOf(videojuegos.get(i+2)+"") ,videojuegos.get(i+3)+"" , 
+						Short.parseShort(videojuegos.get(i+4)+""),videojuegos.get(i+5)+"", videojuegos.get(i+6)+
+						"",videojuegos.get(i+7)+"");
 				v.add((Videojuego) videojuegos.get(i));
 			}
 			return v;
@@ -201,7 +212,7 @@ public class RuletaRusa {
 
 	// Devuelve genero de las Obras
 
-	public TreeSet<Anime> devolverGeneroAnime(GeneroAnime ga) throws GeneroAnimeException {
+	public static ArrayList<Anime> devolverGeneroAnime(GeneroAnime ga) throws GeneroAnimeException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -215,8 +226,8 @@ public class RuletaRusa {
 
 		try {
 			ArrayList<Object> animes = DAO.consultar("anime", columnas, restricciones);
-			TreeSet<Anime> generoAnime = new TreeSet<Anime>();
-			for (byte i = 0; i < animes.size(); i++) {
+			ArrayList<Anime> generoAnime = new ArrayList<Anime>();
+			for (byte i = 0; i < animes.size(); i+=6) {
 				generoAnime.add((Anime) animes.get(5));
 			}
 			return generoAnime;
@@ -226,7 +237,7 @@ public class RuletaRusa {
 		}
 	}
 	
-	public TreeSet<Libro> devolverGeneroLibros(GeneroLibro gl) throws GeneroLibroException{
+	public static TreeSet<Libro> devolverGeneroLibros(GeneroLibro gl) throws GeneroLibroException{
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("escritor");
@@ -251,7 +262,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Videojuego> devolverGenerovideojuego(GeneroVideojuego gv) throws GeneroVideojuegoException{
+	public static TreeSet<Videojuego> devolverGenerovideojuego(GeneroVideojuego gv) throws GeneroVideojuegoException{
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("empresa");
@@ -275,7 +286,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Manga> devolverGeneroManga(GeneroManga gm) throws GeneroMangaException {
+	public static TreeSet<Manga> devolverGeneroManga(GeneroManga gm) throws GeneroMangaException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("autor");
@@ -298,7 +309,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Pelicula> devolverGeneroPelicula(GeneroPelicula gp) throws GeneroPeliculaException {
+	public static TreeSet<Pelicula> devolverGeneroPelicula(GeneroPelicula gp) throws GeneroPeliculaException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -321,7 +332,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public TreeSet<Serie> devolverGeneroSerie(GeneroSerie gs) throws GeneroSerieException{
+	public static ArrayList<Serie> devolverGeneroSerie(GeneroSerie gs) throws GeneroSerieException{
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -334,9 +345,13 @@ public class RuletaRusa {
 		
 		try {
 			ArrayList<Object> series = DAO.consultar("serie", columnas, restricciones);
-			TreeSet<Serie> generoSerie = new TreeSet<Serie>();
-			for (byte i = 0; i < series.size(); i++) {
-				generoSerie.add((Serie) series.get(5));
+			ArrayList<Serie> generoSerie = new ArrayList<Serie>();
+			for (byte i = 0; i < series.size(); i+=7) {
+				Serie s=new Serie(series.get(i) + "",Short.parseShort(series.get(i+1)+ ""),
+						Streaming.valueOf(series.get(i+2) + ""), Byte.parseByte(series.get(i+3) + ""),
+						 Byte.parseByte(series.get(i+4) + ""),GeneroSerie.valueOf(series.get(i+5)+""));
+				
+				generoSerie.add(s);
 			}
 			return generoSerie;
 			
