@@ -74,7 +74,7 @@ public class Videojuego extends Obra implements Comparable<String>{
 	
 	@Override
 	public String toString() {
-		return super.toString()+"\tEmpresa: " + empresa + "\n\tGenero: " + generoVidejuego + "\n\tDuracion: "
+		return "\n\n"+this.getNombre()+"\n\tEmpresa: " + empresa + "\n\tGenero: " + generoVidejuego + "\n\tDuracion: "
 				+ tiempoEstimado + "\n\tTienda: " + tienda + "\n\tTienda con descuento: " + tiendaDescuento+
 				"\n\tPlataforma: "+ plataforma;
 	}

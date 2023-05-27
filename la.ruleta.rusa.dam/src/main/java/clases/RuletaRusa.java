@@ -14,6 +14,8 @@ import enumerations.GeneroPelicula;
 import enumerations.GeneroSerie;
 import enumerations.GeneroVideojuego;
 import enumerations.Streaming;
+import enumerations.TiendaVideojuego;
+import enumerations.TiendaVideojuegoDescuento;
 import excepciones.AnimeException;
 import excepciones.GeneroAnimeException;
 import excepciones.GeneroLibroException;
@@ -90,7 +92,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public static ArrayList<Videojuego> devolvervideojuego() throws VidejuegoException {
+	public static ArrayList<Videojuego> devolverVideojuego() throws VidejuegoException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("empresa");
@@ -101,15 +103,14 @@ public class RuletaRusa {
 		columnas.add("plataforma");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		
-		
 		try {
 			ArrayList<Object> videojuegos = DAO.consultar("videojuego", columnas, restricciones);
 			ArrayList<Videojuego> v = new ArrayList<Videojuego>();
-			for (byte i = 0; i < videojuegos.size(); i+=8) {
-				Videojuego v= new Videojuego(videojuegos.get(i)+"",videojuegos.get(i+1)+"",GeneroVideojuego.valueOf(videojuegos.get(i+2)+"") ,videojuegos.get(i+3)+"" , 
-						Short.parseShort(videojuegos.get(i+4)+""),videojuegos.get(i+5)+"", videojuegos.get(i+6)+
-						"",videojuegos.get(i+7)+"");
-				v.add((Videojuego) videojuegos.get(i));
+			for (byte i = 0; i < videojuegos.size(); i+=7) {
+				Videojuego juegos= new Videojuego(videojuegos.get(i)+"",videojuegos.get(i+1)+"",GeneroVideojuego.valueOf(videojuegos.get(i+2)+"") ,Short.parseShort(videojuegos.get(i+3)+""), 
+						TiendaVideojuego.valueOf(videojuegos.get(i+4)+""),TiendaVideojuegoDescuento.valueOf(videojuegos.get(i+5)+""), videojuegos.get(i+6)+"");
+				
+				v.add(juegos);
 			}
 			return v;
 		} catch (SQLException e) {
@@ -117,7 +118,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public static TreeSet<Manga> devolverManga() throws MangaException {
+	public static ArrayList<Manga> devolverManga() throws MangaException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("autor");
@@ -127,12 +128,13 @@ public class RuletaRusa {
 		columnas.add("enCurso");
 		HashMap<String, Object> restricciones = new HashMap<String, Object>();
 		
-		
 		try {
 			ArrayList<Object> mangas = DAO.consultar("manga", columnas, restricciones);
-			TreeSet<Manga> m = new TreeSet<Manga>();
-			for (byte i = 0; i < mangas.size(); i++) {
-				m.add((Manga) mangas.get(i));
+			ArrayList<Manga> m = new ArrayList<Manga>();
+			for (byte i = 0; i < mangas.size(); i+=6) {
+				Manga mn= new Manga(mangas.get(i)+"", mangas.get(i+1)+"", GeneroManga.valueOf(mangas.get(i+2)+""), Byte.parseByte(mangas.get(i+3)+""), 
+						Short.parseShort(mangas.get(i+4)+""), mangas.get(i+5)+"");	
+				m.add(mn);
 			}
 			return m;
 		} catch (SQLException e) {
@@ -140,7 +142,7 @@ public class RuletaRusa {
 		}
 	}
 
-	public static TreeSet<Pelicula> devolverPelicula() throws PeliculaException {
+	public static ArrayList<Pelicula> devolverPelicula() throws PeliculaException {
 		LinkedHashSet<String> columnas = new LinkedHashSet<String>();
 		columnas.add("nombre");
 		columnas.add("duracion");
@@ -153,9 +155,11 @@ public class RuletaRusa {
 		
 		try {
 			ArrayList<Object> peliculas = DAO.consultar("pelicula", columnas, restricciones);
-			TreeSet<Pelicula> p = new TreeSet<Pelicula>();
-			for (byte i = 0; i < peliculas.size(); i++) {
-				p.add((Pelicula) peliculas.get(i));
+			ArrayList<Pelicula> p = new ArrayList<Pelicula>();
+			for (byte i = 0; i < peliculas.size(); i+=6) {
+				Pelicula pl=new Pelicula(peliculas.get(i)+"", Short.parseShort(peliculas.get(i+1)+""), Streaming.valueOf(peliculas.get(i+2)+""),
+						peliculas.get(i+3)+"", GeneroPelicula.valueOf(peliculas.get(i+4)+""), Byte.parseByte(peliculas.get(i+5)+""));
+				p.add(pl);
 			}
 			return p;
 		} catch (SQLException e) {

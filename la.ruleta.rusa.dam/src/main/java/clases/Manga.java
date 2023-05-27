@@ -8,9 +8,9 @@ public class Manga extends Obra implements Comparable<String>{
 	private byte numeroTomos;
 	private String autor;
 	private short capitulos;
-	private boolean enCurso;
+	private String enCurso;
 	
-	public Manga(String nombre, String autor, GeneroManga generoManga, byte numeroTomos, short capitulos, boolean enCurso) {
+	public Manga(String nombre, String autor, GeneroManga generoManga, byte numeroTomos, short capitulos, String enCurso) {
 		super(nombre);
 		this.generoManga = generoManga;
 		this.numeroTomos = numeroTomos;
@@ -51,17 +51,17 @@ public class Manga extends Obra implements Comparable<String>{
 		this.capitulos = capitulos;
 	}
 	
-	public boolean isEnCurso() {
+	public String isEnCurso() {
 		return enCurso;
 	}
 
-	public void setEnCurso(boolean enCurso) {
+	public void setEnCurso(String enCurso) {
 		this.enCurso = enCurso;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString()+"\n\tAutor: "+autor+"\tGenero: " + generoManga + "\n\tNumero de tomos: " + numeroTomos+
+		return "\n\n"+this.getNombre()+"\n\tAutor: "+autor+"\n\tGenero: " + generoManga + "\n\tNumero de tomos: " + numeroTomos+
 				"\n\tCapitulos: "+capitulos+"\n\tEn curso: "+enCurso;
 	}
 

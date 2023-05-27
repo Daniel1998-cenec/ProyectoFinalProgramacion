@@ -1,4 +1,4 @@
-/*create database ruletarusadam;
+create database ruletarusadam;
 
 use ruletarusadam;
 
@@ -13,7 +13,7 @@ primary key(nombre, director)
 );
 
 insert into pelicula values("Guardianes de la galaxia volumen 3","150","DISNEYPLUS", "James Gunn", "ACCION", "3");
-insert into pelicula values("El circulo","110","NETFLIX", "	James Ponsoldt", "THRILLER", "1");
+insert into pelicula values("El circulo","110","NETFLIX", "James Ponsoldt", "THRILLER", "1");
 insert into pelicula values("Los juegos del hambre","123","AMAZONPRIME", "Francis Lawrence", "ACCION", "4");
 insert into pelicula values("El sueño de Iván","93","AMAZONPRIME", "Roberto Santiago", "DEPORTE", "1");
 insert into pelicula values("Your name","112","CRUNCHYROLL", "Makoto Shinkai", "ROMANCE", "2");
@@ -58,9 +58,9 @@ tiendaDescuento varchar(150),
 plataforma varchar(150)
 );
 
-insert into videojuego values("Ori and the Blind","Moon Studios","PlATAFORMA", "531", "STEAM", "INSTAGAMING", "Switch");
+insert into videojuego values("Ori and the Blind","Moon Studios","PlATAFORMA", "531", "STEAM", "KINGUIN", "Switch");
 insert into videojuego values("Don't Starve Together","Klei","ESTRATEGIA", "10054", "STEAM", "GAMIVO", "Pc");
-insert into videojuego values("Digimon Cyber Sleuth","NAMCO","RPG", "9000", "STEAM", "	INSTAGAMING", "SteamDeck");
+insert into videojuego values("Digimon Cyber Sleuth","NAMCO","RPG", "9000", "STEAM", "KINGUIN", "SteamDeck");
 insert into videojuego values("MediEvil","SCE","AVENTURA", "544", "GAME", "G2A", "Ps4");
 insert into videojuego values("Monster Hunter World Iceborne","Capcom","AVENTURA", "3000", "STEAM","GAMIVO", "Pc");
 
