@@ -53,6 +53,14 @@ public class Principal {
 			e.printStackTrace();
 		}*/
 		
+		/*ArrayList<Anime> todo=new ArrayList<Anime>();
+		try {
+			todo=RuletaRusa.devolverGeneroAnime(GeneroAnime.AVENTURA);
+		} catch (GeneroAnimeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
 		System.out.println(v);
 	}
 }

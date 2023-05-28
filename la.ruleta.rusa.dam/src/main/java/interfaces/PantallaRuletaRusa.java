@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaRuletaRusa extends JPanel implements ActionListener {
     private JButton btnGirar;
@@ -13,14 +15,25 @@ public class PantallaRuletaRusa extends JPanel implements ActionListener {
     private int angle;
     private Color[] colores = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.ORANGE, Color.MAGENTA};
     private Color colorCursor;
-
-    public PantallaRuletaRusa() {
+    private Ventana ventana;
+    
+    public PantallaRuletaRusa(Ventana v) {
+    	this.ventana=v;
         setLayout(new BorderLayout());
 
         JPanel panelSuperior = new JPanel(new FlowLayout());
         btnGirar = new JButton("Girar");
         btnGirar.addActionListener(this);
         panelSuperior.add(btnGirar);
+        
+        JButton buttonCancelar = new JButton("Cancelar");
+        buttonCancelar.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		ventana.cambiarPantalla(PantallaRuletaRusa.class);
+        	}
+        });
+        panelSuperior.add(buttonCancelar);
 
         lblResultado = new JLabel("");
         panelSuperior.add(lblResultado);
@@ -53,10 +66,16 @@ public class PantallaRuletaRusa extends JPanel implements ActionListener {
                     g2d.fillArc(centerX - radius, centerY - radius, radius * 2, radius * 2, angle + i * 60, 60);
                 }
 
-                // Dibujar el cursor en el centro
+                // Dibujar el cursor en forma de flecha
                 g2d.setColor(Color.BLACK);
-                int cursorSize = 10;
-                g2d.fillOval(centerX - cursorSize / 2, centerY - cursorSize / 2, cursorSize, cursorSize);
+                int cursorSize = 20;
+
+                int[] xPoints = { centerX, centerX - cursorSize / 2, centerX + cursorSize / 2 };
+                int[] yPoints = { centerY - cursorSize / 2, centerY + cursorSize / 2, centerY + cursorSize / 2 };
+                int numPoints = xPoints.length;
+
+                Polygon arrow = new Polygon(xPoints, yPoints, numPoints);
+                g2d.fill(arrow);
 
                 g2d.dispose();
             }
@@ -79,13 +98,13 @@ public class PantallaRuletaRusa extends JPanel implements ActionListener {
             angle += 5;
             repaint();
             Random r=new Random();
-            if (angle >= r.nextInt(720,10000)) {
+            if (angle >= r.nextInt(720,9777)) {
                 timer.stop();
                 btnGirar.setEnabled(true);
 
                 // Lógica para determinar el resultado de la ruleta
-                int resultado = (int) (Math.random() * 37);
-                lblResultado.setText("El resultado es: " + resultado);
+                //int resultado = (int) (Math.random() * 37);
+                //lblResultado.setText("El resultado es: ");
 
                 // Seleccionar un color aleatorio para el cursor
                 colorCursor = colores[(int) (Math.random() * colores.length)];
