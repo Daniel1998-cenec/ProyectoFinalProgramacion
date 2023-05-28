@@ -102,6 +102,12 @@ public class PantallaPreguntas extends JPanel {
 		add(LabelPregunta1, gbc_LabelPregunta1);
 		
 		JButton buttonJugar = new JButton("Jugar Videojuego");
+		buttonJugar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.cambiarPantalla(PantallaVideojuego.class);
+			}
+		});
 		buttonJugar.setBackground(SystemColor.activeCaption);
 		GridBagConstraints gbc_buttonJugar = new GridBagConstraints();
 		gbc_buttonJugar.insets = new Insets(0, 0, 5, 5);
@@ -124,6 +130,12 @@ public class PantallaPreguntas extends JPanel {
 		add(buttonVerAnime, gbc_buttonVerAnime);
 		
 		JButton buttonLeerLibro = new JButton("Leer libro");
+		buttonLeerLibro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.cambiarPantalla(PantallaLibro.class);
+			}
+		});
 		buttonLeerLibro.setBackground(SystemColor.activeCaption);
 		GridBagConstraints gbc_buttonLeerLibro = new GridBagConstraints();
 		gbc_buttonLeerLibro.insets = new Insets(0, 0, 5, 0);
@@ -132,6 +144,12 @@ public class PantallaPreguntas extends JPanel {
 		add(buttonLeerLibro, gbc_buttonLeerLibro);
 		
 		JButton buttonLeerManga = new JButton("Leer manga");
+		buttonLeerManga.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.cambiarPantalla(PantallaManga.class);
+			}
+		});
 		buttonLeerManga.setBackground(SystemColor.activeCaption);
 		GridBagConstraints gbc_buttonLeerManga = new GridBagConstraints();
 		gbc_buttonLeerManga.insets = new Insets(0, 0, 5, 5);

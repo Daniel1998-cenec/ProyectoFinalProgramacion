@@ -1,7 +1,7 @@
 package enumerations;
 
 public enum GeneroVideojuego {
-	PlATAFORMA,
+	PLATAFORMA,
 	AVENTURA,
 	RPG,
 	ESTRATEGIA

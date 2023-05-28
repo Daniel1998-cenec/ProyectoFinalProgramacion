@@ -1,4 +1,4 @@
-create database ruletarusadam;
+/*create database ruletarusadam;
 
 use ruletarusadam;
 
@@ -58,7 +58,7 @@ tiendaDescuento varchar(150),
 plataforma varchar(150)
 );
 
-insert into videojuego values("Ori and the Blind","Moon Studios","PlATAFORMA", "531", "STEAM", "KINGUIN", "Switch");
+insert into videojuego values("Ori and the Blind","Moon Studios","PLATAFORMA", "531", "STEAM", "KINGUIN", "Switch");
 insert into videojuego values("Don't Starve Together","Klei","ESTRATEGIA", "10054", "STEAM", "GAMIVO", "Pc");
 insert into videojuego values("Digimon Cyber Sleuth","NAMCO","RPG", "9000", "STEAM", "KINGUIN", "SteamDeck");
 insert into videojuego values("MediEvil","SCE","AVENTURA", "544", "GAME", "G2A", "Ps4");
@@ -101,5 +101,7 @@ create table user(
  pass varchar(50),
  nick varchar(50)
 );
+
+insert into user values("a@a.com","1","empe");*/
 
 /*drop database if exists ruletarusadam;*/
