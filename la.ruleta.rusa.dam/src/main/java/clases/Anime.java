@@ -7,7 +7,7 @@ public class Anime extends Direccion implements Comparable<String>{
 	
 	private GeneroAnime generoAnime;
 
-	public Anime(String nombre, short duracion, Streaming streaming, byte temporadas, byte episodios,
+	public Anime(String nombre, short duracion, Streaming streaming, byte temporadas, short episodios,
 			GeneroAnime genero) {
 		super(nombre, duracion, streaming, temporadas, episodios);
 		this.generoAnime = genero;
@@ -23,7 +23,7 @@ public class Anime extends Direccion implements Comparable<String>{
 
 	@Override
 	public String toString() {
-		return super.toString()+"\tGenero: " + generoAnime;
+		return "\n\n"+super.toString()+"\tGenero: " + generoAnime;
 	}
 
 	@Override

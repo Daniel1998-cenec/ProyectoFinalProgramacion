@@ -31,7 +31,7 @@ public class Estudio extends Obra {
 
 	@Override
 	public String toString() {
-		return super.toString()+"\tDuracion: " + duracion + "\n\t¿Donde ver?: " + streaming +"\n";
+		return super.toString()+"\tDuracion: " + duracion+" minutos." + "\n\t¿Donde ver?: " + streaming +"\n";
 	}
 	
 	

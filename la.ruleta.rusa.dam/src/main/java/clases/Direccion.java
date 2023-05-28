@@ -5,9 +5,9 @@ import enumerations.Streaming;
 public class Direccion extends Estudio{
 	
 	private byte temporadas;
-	private byte episodios;
+	private short episodios;
 	
-	public Direccion(String nombre, short duracion, Streaming streaming, byte temporadas, byte episodios) {
+	public Direccion(String nombre, short duracion, Streaming streaming, byte temporadas, short episodios) {
 		super(nombre, duracion, streaming);
 		this.temporadas = temporadas;
 		this.episodios = episodios;
@@ -21,11 +21,11 @@ public class Direccion extends Estudio{
 		this.temporadas = temporadas;
 	}
 
-	public byte getEpisodios() {
+	public short getEpisodios() {
 		return episodios;
 	}
 
-	public void setEpisodios(byte episodios) {
+	public void setEpisodios(short episodios) {
 		this.episodios = episodios;
 	}
 

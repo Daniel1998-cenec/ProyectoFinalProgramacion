@@ -43,7 +43,7 @@ public class Pelicula extends Estudio implements Comparable<String>{
 
 	@Override
 	public String toString() {
-		return "\n"+super.toString()+"\tDirector: " + director + "\n\tGenero: " + generoPelicula + "\n\tParte: " + parte + "\n";
+		return "\n\n"+super.toString()+"\tDirector: " + director + "\n\tGenero: " + generoPelicula + "\n\tParte: " + parte;
 	}
 
 	@Override
