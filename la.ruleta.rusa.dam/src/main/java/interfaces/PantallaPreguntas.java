@@ -32,6 +32,7 @@ public class PantallaPreguntas extends JPanel {
 	
 	private Ventana ventana;
 	
+	
 	public PantallaPreguntas(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
@@ -39,6 +40,7 @@ public class PantallaPreguntas extends JPanel {
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0};
+		
 		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
@@ -51,21 +53,21 @@ public class PantallaPreguntas extends JPanel {
 		gbc_labelIntroduccion.gridy = 0;
 		add(labelIntroduccion, gbc_labelIntroduccion);
 		
-		JButton btbuttonObraVista = new JButton("Obra vista");
-		btbuttonObraVista.addMouseListener(new MouseAdapter() {
+		JButton buttonMiLista = new JButton("Mi Lista");
+		buttonMiLista.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ventana.cambiarPantalla(PantallaListado.class);
 			}
 		});
-		btbuttonObraVista.setForeground(SystemColor.activeCaption);
-		btbuttonObraVista.setBackground(Color.DARK_GRAY);
-		btbuttonObraVista.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		GridBagConstraints gbc_btbuttonObraVista = new GridBagConstraints();
-		gbc_btbuttonObraVista.insets = new Insets(0, 0, 5, 0);
-		gbc_btbuttonObraVista.gridx = 4;
-		gbc_btbuttonObraVista.gridy = 0;
-		add(btbuttonObraVista, gbc_btbuttonObraVista);
+		buttonMiLista.setForeground(SystemColor.activeCaption);
+		buttonMiLista.setBackground(Color.DARK_GRAY);
+		buttonMiLista.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		GridBagConstraints gbc_buttonMiLista = new GridBagConstraints();
+		gbc_buttonMiLista.insets = new Insets(0, 0, 5, 0);
+		gbc_buttonMiLista.gridx = 4;
+		gbc_buttonMiLista.gridy = 0;
+		add(buttonMiLista, gbc_buttonMiLista);
 		
 		JLabel LabelIntroducción2 = new JLabel("A continuación se te harán dos preguntas, sino quieres responder, le pudes dar al boton saltar pregunta, y listo.");
 		LabelIntroducción2.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 18));
