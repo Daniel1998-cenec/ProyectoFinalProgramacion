@@ -9,7 +9,7 @@ public class Ventana extends JFrame {
 	protected Usuario usuarioLogado;
 	
 	public Ventana() {
-		this.setSize(600,500);
+		this.setSize(800,700);
 		this.setTitle("Proyecto Final Ruleta Rusa");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -42,6 +42,12 @@ public class Ventana extends JFrame {
 			this.setContentPane(new PantallaLibro(this));
 		}if (clase.equals(PantallaManga.class)) {
 			this.setContentPane(new PantallaManga(this));
+		}if (clase.equals(PantallaSerie.class)) {
+			this.setContentPane(new PantallaSerie(this));
+		}if (clase.equals(PantallaPelicula.class)) {
+			this.setContentPane(new PantallaPelicula(this));
+		}if (clase.equals(PantallaDevolverTodo.class)) {
+			this.setContentPane(new PantallaDevolverTodo(this));
 		}	
 		this.getContentPane().setVisible(true);
 	}
