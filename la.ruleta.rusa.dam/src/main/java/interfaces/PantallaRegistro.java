@@ -3,6 +3,8 @@ package interfaces;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Graphics;
+
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JTextPane;
@@ -10,6 +12,9 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.awt.GridBagLayout;
@@ -22,6 +27,7 @@ import javax.swing.SwingConstants;
 import clases.Usuario;
 
 import javax.swing.JRadioButton;
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JPasswordField;
 
@@ -32,7 +38,18 @@ public class PantallaRegistro extends JPanel {
 	private JTextField textNick;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JPasswordField textPass;
-	
+	protected void paintComponent(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paintComponent(g);
+		try {
+			BufferedImage fondo=ImageIO.read(new File(".\\img\\fondoRegistro.jpg"));
+			g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(),new Color(0,0,0),null);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public PantallaRegistro(Ventana v) {
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;

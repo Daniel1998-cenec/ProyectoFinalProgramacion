@@ -34,7 +34,7 @@ public class PantallaPelicula extends JPanel {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		try {
-			BufferedImage fondo=ImageIO.read(new File(".\\img\\fondo2.jpg"));
+			BufferedImage fondo=ImageIO.read(new File(".\\img\\fondo1.jpg"));
 			g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(),new Color(0,0,0),null);
 			
 		} catch (IOException e) {
