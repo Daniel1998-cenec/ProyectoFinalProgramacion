@@ -30,7 +30,8 @@ import excepciones.GeneroPeliculaException;
 public class PantallaPelicula extends JPanel {
 	
 	private Ventana ventana;
-	protected void paintComponent(Graphics g) {
+	
+	/*protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		try {
@@ -41,7 +42,7 @@ public class PantallaPelicula extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 	public PantallaPelicula(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;

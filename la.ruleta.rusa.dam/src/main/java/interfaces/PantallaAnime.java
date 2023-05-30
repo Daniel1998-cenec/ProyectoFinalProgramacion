@@ -34,7 +34,7 @@ public class PantallaAnime extends JPanel {
 	
 	private Ventana ventana;
 	
-	protected void paintComponent(Graphics g) {
+	/*protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		try {
@@ -45,7 +45,7 @@ public class PantallaAnime extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 	public PantallaAnime(Ventana v){
 		setBackground(new Color(192, 192, 192));

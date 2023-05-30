@@ -38,7 +38,7 @@ public class PantallaPreguntas extends JPanel {
 	private Ventana ventana;
 	
 	
-	@Override
+	/*@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
@@ -50,7 +50,7 @@ public class PantallaPreguntas extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 
 	public PantallaPreguntas(Ventana v){
