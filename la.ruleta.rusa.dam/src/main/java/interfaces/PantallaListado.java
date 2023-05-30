@@ -84,7 +84,7 @@ public class PantallaListado extends JPanel {
 		});
 		
 		JLabel lbaelImg = new JLabel("");
-		lbaelImg.setIcon(new ImageIcon("C:\\Users\\BEEP\\Documents\\GitHub\\ProyectoFinalProgramacion\\la.ruleta.rusa.dam\\img\\haikyu2.jpeg"));
+		lbaelImg.setIcon(new ImageIcon(".\\img\\haikyu2.jpeg"));
 		GridBagConstraints gbc_lbaelImg = new GridBagConstraints();
 		gbc_lbaelImg.insets = new Insets(0, 0, 5, 5);
 		gbc_lbaelImg.gridx = 0;
@@ -97,7 +97,7 @@ public class PantallaListado extends JPanel {
 		elementoListaAnime.add(buttonVerDetalle, gbc_buttonVerDetalle);
 		
 		JLabel LabelImg2 = new JLabel("");
-		LabelImg2.setIcon(new ImageIcon("C:\\Users\\BEEP\\Documents\\GitHub\\ProyectoFinalProgramacion\\la.ruleta.rusa.dam\\img\\ippo2.jpeg"));
+		LabelImg2.setIcon(new ImageIcon(".\\img\\ippo2.jpeg"));
 		GridBagConstraints gbc_LabelImg2 = new GridBagConstraints();
 		gbc_LabelImg2.insets = new Insets(0, 0, 5, 5);
 		gbc_LabelImg2.gridx = 0;
@@ -132,7 +132,7 @@ public class PantallaListado extends JPanel {
 		elementoListaAnime.add(buttonVerDetalle1, gbc_buttonVerDetalle1);
 		
 		JLabel labelImg3 = new JLabel("");
-		labelImg3.setIcon(new ImageIcon("C:\\Users\\BEEP\\Documents\\GitHub\\ProyectoFinalProgramacion\\la.ruleta.rusa.dam\\img\\inuyahsa.jpeg"));
+		labelImg3.setIcon(new ImageIcon(".\\img\\inuyahsa.jpeg"));
 		GridBagConstraints gbc_labelImg3 = new GridBagConstraints();
 		gbc_labelImg3.insets = new Insets(0, 0, 5, 5);
 		gbc_labelImg3.gridx = 0;
@@ -167,7 +167,7 @@ public class PantallaListado extends JPanel {
 		elementoListaAnime.add(buttonVerDetalle2, gbc_buttonVerDetalle2);
 		
 		JLabel labelImg4 = new JLabel("");
-		labelImg4.setIcon(new ImageIcon("C:\\Users\\BEEP\\Documents\\GitHub\\ProyectoFinalProgramacion\\la.ruleta.rusa.dam\\img\\deku.jpeg"));
+		labelImg4.setIcon(new ImageIcon(".\\img\\deku.jpeg"));
 		GridBagConstraints gbc_labelImg4 = new GridBagConstraints();
 		gbc_labelImg4.insets = new Insets(0, 0, 5, 5);
 		gbc_labelImg4.gridx = 0;
@@ -202,7 +202,7 @@ public class PantallaListado extends JPanel {
 		elementoListaAnime.add(buttonVerDetalle3, gbc_buttonVerDetalle3);
 		
 		JLabel labelImg5 = new JLabel("");
-		labelImg5.setIcon(new ImageIcon("C:\\Users\\BEEP\\Documents\\GitHub\\ProyectoFinalProgramacion\\la.ruleta.rusa.dam\\img\\chopper.jpeg"));
+		labelImg5.setIcon(new ImageIcon(".\\img\\chopper.jpeg"));
 		GridBagConstraints gbc_labelImg5 = new GridBagConstraints();
 		gbc_labelImg5.insets = new Insets(0, 0, 0, 5);
 		gbc_labelImg5.gridx = 0;
