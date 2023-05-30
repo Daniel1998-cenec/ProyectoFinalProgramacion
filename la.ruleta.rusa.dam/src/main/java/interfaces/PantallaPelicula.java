@@ -26,6 +26,7 @@ import enumerations.GeneroManga;
 import enumerations.GeneroPelicula;
 import excepciones.GeneroMangaException;
 import excepciones.GeneroPeliculaException;
+import javax.swing.JTextArea;
 
 public class PantallaPelicula extends JPanel {
 	
@@ -46,12 +47,9 @@ public class PantallaPelicula extends JPanel {
 	public PantallaPelicula(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
-		JLabel labelText = new JLabel("");
-		labelText.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		labelText.setForeground(SystemColor.textHighlight);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
+		gridBagLayout.columnWidths = new int[]{110, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 80, 93, 56, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0};
 		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
@@ -90,6 +88,8 @@ public class PantallaPelicula extends JPanel {
 		gbc_LabelIntroducción2.gridy = 1;
 		add(LabelIntroducción2, gbc_LabelIntroducción2);
 		
+		JTextArea labelText = new JTextArea();
+		
 		JButton buttonOmitir = new JButton("Omitir");
 		buttonOmitir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -120,13 +120,12 @@ public class PantallaPelicula extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Pelicula> todo=new ArrayList<Pelicula>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroPelicula(GeneroPelicula.THRILLER);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroPeliculaException e1) {
 					// TODO Auto-generated catch block
@@ -146,13 +145,12 @@ public class PantallaPelicula extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Pelicula> todo=new ArrayList<Pelicula>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroPelicula(GeneroPelicula.DEPORTE);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroPeliculaException e1) {
 					// TODO Auto-generated catch block
@@ -172,13 +170,12 @@ public class PantallaPelicula extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Pelicula> todo=new ArrayList<Pelicula>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroPelicula(GeneroPelicula.ACCION);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroPeliculaException e1) {
 					// TODO Auto-generated catch block
@@ -198,13 +195,12 @@ public class PantallaPelicula extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Pelicula> todo=new ArrayList<Pelicula>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroPelicula(GeneroPelicula.ROMANCE);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroPeliculaException e1) {
 					// TODO Auto-generated catch block
@@ -218,12 +214,6 @@ public class PantallaPelicula extends JPanel {
 		gbc_buttonRomance.gridx = 0;
 		gbc_buttonRomance.gridy = 5;
 		add(buttonRomance, gbc_buttonRomance);
-		GridBagConstraints gbc_labelText = new GridBagConstraints();
-		gbc_labelText.gridwidth = 5;
-		gbc_labelText.insets = new Insets(0, 0, 5, 0);
-		gbc_labelText.gridx = 0;
-		gbc_labelText.gridy = 6;
-		add(labelText, gbc_labelText);
 		
 		JButton buttonCancelar = new JButton("Cancelar");
 		buttonCancelar.setBackground(SystemColor.activeCaption);
@@ -233,6 +223,16 @@ public class PantallaPelicula extends JPanel {
 				ventana.cambiarPantalla(PantallaRuletaRusa.class);
 			}
 		});
+		
+		
+		labelText.setEditable(false);
+		labelText.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_labelText = new GridBagConstraints();
+		gbc_labelText.insets = new Insets(0, 0, 5, 5);
+		gbc_labelText.fill = GridBagConstraints.BOTH;
+		gbc_labelText.gridx = 2;
+		gbc_labelText.gridy = 6;
+		add(labelText, gbc_labelText);
 		GridBagConstraints gbc_buttonCancelar = new GridBagConstraints();
 		gbc_buttonCancelar.insets = new Insets(0, 0, 0, 5);
 		gbc_buttonCancelar.gridx = 2;

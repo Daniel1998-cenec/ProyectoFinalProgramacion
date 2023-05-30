@@ -26,6 +26,7 @@ import enumerations.GeneroManga;
 import enumerations.GeneroVideojuego;
 import excepciones.GeneroMangaException;
 import excepciones.GeneroVideojuegoException;
+import javax.swing.JTextArea;
 
 public class PantallaManga extends JPanel {
 	
@@ -47,12 +48,9 @@ public class PantallaManga extends JPanel {
 	public PantallaManga(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
-		JLabel labelText = new JLabel("");
-		labelText.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		labelText.setForeground(SystemColor.textHighlight);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 69, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0};
 		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
@@ -65,6 +63,8 @@ public class PantallaManga extends JPanel {
 		gbc_LabelIntroduccion.gridx = 1;
 		gbc_LabelIntroduccion.gridy = 0;
 		add(LabelIntroduccion, gbc_LabelIntroduccion);
+		
+		JTextArea labelText = new JTextArea();
 		
 		JButton btbuttonObraVista = new JButton("Obra vista");
 		btbuttonObraVista.addMouseListener(new MouseAdapter() {
@@ -121,13 +121,13 @@ public class PantallaManga extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Manga> todo=new ArrayList<Manga>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroManga(GeneroManga.SHOUNEN);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroMangaException e1) {
 					// TODO Auto-generated catch block
@@ -147,13 +147,13 @@ public class PantallaManga extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Manga> todo=new ArrayList<Manga>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroManga(GeneroManga.FANTASIA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroMangaException e1) {
 					// TODO Auto-generated catch block
@@ -173,13 +173,13 @@ public class PantallaManga extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Manga> todo=new ArrayList<Manga>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroManga(GeneroManga.COMEDIA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroMangaException e1) {
 					// TODO Auto-generated catch block
@@ -193,13 +193,6 @@ public class PantallaManga extends JPanel {
 		gbc_buttonComedia.gridx = 4;
 		gbc_buttonComedia.gridy = 4;
 		add(buttonComedia, gbc_buttonComedia);
-		GridBagConstraints gbc_labelText = new GridBagConstraints();
-		gbc_labelText.gridheight = 2;
-		gbc_labelText.gridwidth = 5;
-		gbc_labelText.insets = new Insets(0, 0, 5, 0);
-		gbc_labelText.gridx = 0;
-		gbc_labelText.gridy = 5;
-		add(labelText, gbc_labelText);
 		
 		JButton buttonCancelar = new JButton("Cancelar");
 		buttonCancelar.setBackground(SystemColor.activeCaption);
@@ -209,6 +202,17 @@ public class PantallaManga extends JPanel {
 				ventana.cambiarPantalla(PantallaRuletaRusa.class);
 			}
 		});
+		
+		
+		labelText.setBackground(Color.LIGHT_GRAY);
+		labelText.setEditable(false);
+		GridBagConstraints gbc_labelText = new GridBagConstraints();
+		gbc_labelText.gridheight = 2;
+		gbc_labelText.insets = new Insets(0, 0, 5, 5);
+		gbc_labelText.fill = GridBagConstraints.BOTH;
+		gbc_labelText.gridx = 2;
+		gbc_labelText.gridy = 5;
+		add(labelText, gbc_labelText);
 		GridBagConstraints gbc_buttonCancelar = new GridBagConstraints();
 		gbc_buttonCancelar.insets = new Insets(0, 0, 0, 5);
 		gbc_buttonCancelar.gridx = 2;

@@ -26,6 +26,7 @@ import enumerations.GeneroAnime;
 import enumerations.GeneroVideojuego;
 import excepciones.GeneroAnimeException;
 import excepciones.GeneroVideojuegoException;
+import javax.swing.JTextArea;
 
 public class PantallaVideojuego extends JPanel {
 	
@@ -47,9 +48,6 @@ public class PantallaVideojuego extends JPanel {
 	public PantallaVideojuego(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
-		JLabel labelText = new JLabel("");
-		labelText.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		labelText.setForeground(SystemColor.textHighlight);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
@@ -116,18 +114,21 @@ public class PantallaVideojuego extends JPanel {
 		gbc_LabelPregunta2.gridy = 3;
 		add(LabelPregunta2, gbc_LabelPregunta2);
 		
+		JTextArea labelText = new JTextArea();
+		labelText.setEditable(false);
+		labelText.setBackground(Color.LIGHT_GRAY);
+		
 		JButton buttonRpg = new JButton("RPG");
 		buttonRpg.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Videojuego> todo=new ArrayList<Videojuego>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroVideojuego(GeneroVideojuego.RPG);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroVideojuegoException e1) {
 					// TODO Auto-generated catch block
@@ -147,13 +148,13 @@ public class PantallaVideojuego extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Videojuego> todo=new ArrayList<Videojuego>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroVideojuego(GeneroVideojuego.ESTRATEGIA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					aux+="";
 					labelText.setText(aux);
 				} catch (GeneroVideojuegoException e1) {
 					// TODO Auto-generated catch block
@@ -173,13 +174,13 @@ public class PantallaVideojuego extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Videojuego> todo=new ArrayList<Videojuego>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroVideojuego(GeneroVideojuego.AVENTURA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=""+todo.get(i)+"";
 					}
-					aux+="</html>";
+					aux+="";
 					labelText.setText(aux);
 				} catch (GeneroVideojuegoException e1) {
 					// TODO Auto-generated catch block
@@ -199,13 +200,13 @@ public class PantallaVideojuego extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Videojuego> todo=new ArrayList<Videojuego>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroVideojuego(GeneroVideojuego.PLATAFORMA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroVideojuegoException e1) {
 					// TODO Auto-generated catch block
@@ -219,12 +220,6 @@ public class PantallaVideojuego extends JPanel {
 		gbc_buttonPlataforma.gridx = 0;
 		gbc_buttonPlataforma.gridy = 5;
 		add(buttonPlataforma, gbc_buttonPlataforma);
-		GridBagConstraints gbc_labelText = new GridBagConstraints();
-		gbc_labelText.gridwidth = 5;
-		gbc_labelText.insets = new Insets(0, 0, 5, 0);
-		gbc_labelText.gridx = 0;
-		gbc_labelText.gridy = 6;
-		add(labelText, gbc_labelText);
 		
 		JButton buttonCancelar = new JButton("Cancelar");
 		buttonCancelar.setBackground(SystemColor.activeCaption);
@@ -234,6 +229,14 @@ public class PantallaVideojuego extends JPanel {
 				ventana.cambiarPantalla(PantallaRuletaRusa.class);
 			}
 		});
+		
+		
+		GridBagConstraints gbc_labelText = new GridBagConstraints();
+		gbc_labelText.insets = new Insets(0, 0, 5, 5);
+		gbc_labelText.fill = GridBagConstraints.BOTH;
+		gbc_labelText.gridx = 2;
+		gbc_labelText.gridy = 6;
+		add(labelText, gbc_labelText);
 		GridBagConstraints gbc_buttonCancelar = new GridBagConstraints();
 		gbc_buttonCancelar.insets = new Insets(0, 0, 0, 5);
 		gbc_buttonCancelar.gridx = 2;

@@ -50,9 +50,6 @@ public class PantallaAnime extends JPanel {
 	public PantallaAnime(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
-		JLabel labelText = new JLabel("");
-		labelText.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		labelText.setForeground(SystemColor.textHighlight);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
@@ -94,6 +91,9 @@ public class PantallaAnime extends JPanel {
 		gbc_LabelIntroducción2.gridy = 1;
 		add(LabelIntroducción2, gbc_LabelIntroducción2);
 		
+		JTextArea labelText = new JTextArea();
+		labelText.setEditable(false);
+		
 		JButton buttonOmitir = new JButton("Omitir");
 		buttonOmitir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -124,13 +124,12 @@ public class PantallaAnime extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Anime> todo=new ArrayList<Anime>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroAnime(GeneroAnime.DEPORTE);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroAnimeException e1) {
 					// TODO Auto-generated catch block
@@ -150,13 +149,12 @@ public class PantallaAnime extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Anime> todo=new ArrayList<Anime>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroAnime(GeneroAnime.AVENTURA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroAnimeException e1) {
 					// TODO Auto-generated catch block
@@ -176,13 +174,12 @@ public class PantallaAnime extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Anime> todo=new ArrayList<Anime>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroAnime(GeneroAnime.SHOUNEN);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroAnimeException e1) {
 					// TODO Auto-generated catch block
@@ -196,13 +193,6 @@ public class PantallaAnime extends JPanel {
 		gbc_buttonShounen.gridx = 4;
 		gbc_buttonShounen.gridy = 4;
 		add(buttonShounen, gbc_buttonShounen);
-		GridBagConstraints gbc_labelText = new GridBagConstraints();
-		gbc_labelText.gridheight = 2;
-		gbc_labelText.gridwidth = 5;
-		gbc_labelText.insets = new Insets(0, 0, 5, 0);
-		gbc_labelText.gridx = 0;
-		gbc_labelText.gridy = 5;
-		add(labelText, gbc_labelText);
 		
 		JButton buttonCancelar = new JButton("Cancelar");
 		buttonCancelar.setBackground(SystemColor.activeCaption);
@@ -212,6 +202,16 @@ public class PantallaAnime extends JPanel {
 				ventana.cambiarPantalla(PantallaRuletaRusa.class);
 			}
 		});
+		
+		
+		labelText.setBackground(Color.LIGHT_GRAY);
+		GridBagConstraints gbc_labelText = new GridBagConstraints();
+		gbc_labelText.gridheight = 2;
+		gbc_labelText.insets = new Insets(0, 0, 5, 5);
+		gbc_labelText.fill = GridBagConstraints.BOTH;
+		gbc_labelText.gridx = 2;
+		gbc_labelText.gridy = 5;
+		add(labelText, gbc_labelText);
 		GridBagConstraints gbc_buttonCancelar = new GridBagConstraints();
 		gbc_buttonCancelar.insets = new Insets(0, 0, 0, 5);
 		gbc_buttonCancelar.gridx = 2;

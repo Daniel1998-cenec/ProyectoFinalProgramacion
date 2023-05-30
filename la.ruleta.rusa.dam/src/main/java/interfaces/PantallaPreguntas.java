@@ -21,7 +21,10 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -63,6 +66,39 @@ public class PantallaPreguntas extends JPanel {
 		
 		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
+		
+		JButton buttonVerRegistro = new JButton("Ver Registro");
+		buttonVerRegistro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					BufferedReader leerRegistro = new BufferedReader(new FileReader("./Usuarios.log"));
+
+					String texto = "";
+					String linea = leerRegistro.readLine();
+
+					while (linea != null) {
+						texto += linea + "\n";
+						linea = leerRegistro.readLine();
+					}
+					System.out.println(texto);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			}
+		});
+		buttonVerRegistro.setForeground(SystemColor.activeCaption);
+		buttonVerRegistro.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		buttonVerRegistro.setBackground(Color.DARK_GRAY);
+		GridBagConstraints gbc_buttonVerRegistro = new GridBagConstraints();
+		gbc_buttonVerRegistro.insets = new Insets(0, 0, 5, 5);
+		gbc_buttonVerRegistro.gridx = 0;
+		gbc_buttonVerRegistro.gridy = 0;
+		add(buttonVerRegistro, gbc_buttonVerRegistro);
 		
 		JLabel labelIntroduccion = new JLabel("Bienvenido a la Beta de la app de la Ruleta Rusa");
 		labelIntroduccion.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 21));
@@ -142,7 +178,7 @@ public class PantallaPreguntas extends JPanel {
 		labelIntroductorio3.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 18));
 		GridBagConstraints gbc_labelIntroductorio3 = new GridBagConstraints();
 		gbc_labelIntroductorio3.gridwidth = 5;
-		gbc_labelIntroductorio3.insets = new Insets(0, 0, 5, 5);
+		gbc_labelIntroductorio3.insets = new Insets(0, 0, 5, 0);
 		gbc_labelIntroductorio3.gridx = 0;
 		gbc_labelIntroductorio3.gridy = 2;
 		add(labelIntroductorio3, gbc_labelIntroductorio3);

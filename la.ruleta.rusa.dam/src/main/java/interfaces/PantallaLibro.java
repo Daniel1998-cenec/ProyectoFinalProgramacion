@@ -26,6 +26,7 @@ import enumerations.GeneroAnime;
 import enumerations.GeneroLibro;
 import excepciones.GeneroAnimeException;
 import excepciones.GeneroLibroException;
+import javax.swing.JTextArea;
 
 public class PantallaLibro extends JPanel {
 	
@@ -47,9 +48,6 @@ public class PantallaLibro extends JPanel {
 	public PantallaLibro (Ventana v) {
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
-		JLabel labelText = new JLabel("");
-		labelText.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		labelText.setForeground(SystemColor.textHighlight);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
@@ -116,18 +114,22 @@ public class PantallaLibro extends JPanel {
 		gbc_LabelPregunta2.gridy = 3;
 		add(LabelPregunta2, gbc_LabelPregunta2);
 		
+		JTextArea labelText = new JTextArea();
+		labelText.setEditable(false);
+		labelText.setBackground(Color.LIGHT_GRAY);
+		
 		JButton buttonNovela = new JButton("Novela");
 		buttonNovela.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Libro> todo=new ArrayList<Libro>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroLibros(GeneroLibro.NOVELA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroLibroException e1) {
 					// TODO Auto-generated catch block
@@ -147,13 +149,13 @@ public class PantallaLibro extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Libro> todo=new ArrayList<Libro>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroLibros(GeneroLibro.CULTO);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroLibroException e1) {
 					// TODO Auto-generated catch block
@@ -173,13 +175,12 @@ public class PantallaLibro extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Libro> todo=new ArrayList<Libro>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroLibros(GeneroLibro.AVENTURA);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroLibroException e1) {
 					// TODO Auto-generated catch block
@@ -199,13 +200,12 @@ public class PantallaLibro extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Libro> todo=new ArrayList<Libro>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroLibros(GeneroLibro.FICCION);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
 					labelText.setText(aux);
 				} catch (GeneroLibroException e1) {
 					// TODO Auto-generated catch block
@@ -225,13 +225,13 @@ public class PantallaLibro extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Libro> todo=new ArrayList<Libro>();
-				String aux="<html>";
+				String aux="";
 				try {
 					todo=RuletaRusa.devolverGeneroLibros(GeneroLibro.SUSPENSE);
 					for(byte i=0;i<todo.size();i++) {
-						aux+="<p>"+todo.get(i)+"</p>";
+						aux+=todo.get(i);
 					}
-					aux+="</html>";
+					
 					labelText.setText(aux);
 				} catch (GeneroLibroException e1) {
 					// TODO Auto-generated catch block
@@ -245,12 +245,6 @@ public class PantallaLibro extends JPanel {
 		gbc_buttonSuspense.gridx = 2;
 		gbc_buttonSuspense.gridy = 5;
 		add(buttonSuspense, gbc_buttonSuspense);
-		GridBagConstraints gbc_labelText = new GridBagConstraints();
-		gbc_labelText.gridwidth = 5;
-		gbc_labelText.insets = new Insets(0, 0, 5, 0);
-		gbc_labelText.gridx = 0;
-		gbc_labelText.gridy = 6;
-		add(labelText, gbc_labelText);
 		
 		JButton buttonCancelar = new JButton("Cancelar");
 		buttonCancelar.setBackground(SystemColor.activeCaption);
@@ -260,6 +254,14 @@ public class PantallaLibro extends JPanel {
 				ventana.cambiarPantalla(PantallaRuletaRusa.class);
 			}
 		});
+		
+		
+		GridBagConstraints gbc_labelText = new GridBagConstraints();
+		gbc_labelText.insets = new Insets(0, 0, 5, 5);
+		gbc_labelText.fill = GridBagConstraints.BOTH;
+		gbc_labelText.gridx = 2;
+		gbc_labelText.gridy = 6;
+		add(labelText, gbc_labelText);
 		GridBagConstraints gbc_buttonCancelar = new GridBagConstraints();
 		gbc_buttonCancelar.insets = new Insets(0, 0, 0, 5);
 		gbc_buttonCancelar.gridx = 2;
