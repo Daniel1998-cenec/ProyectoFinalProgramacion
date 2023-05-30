@@ -1,5 +1,6 @@
 package interfaces;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,11 +14,15 @@ import clases.Usuario;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import javax.swing.JSpinner;
@@ -33,6 +38,21 @@ public class PantallaPreguntas extends JPanel {
 	private Ventana ventana;
 	
 	
+	@Override
+	protected void paintComponent(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paintComponent(g);
+		try {
+			BufferedImage fondo=ImageIO.read(new File(".\\img\\Circo.jpeg"));
+			g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(),new Color(0,0,0),null);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
 	public PantallaPreguntas(Ventana v){
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
