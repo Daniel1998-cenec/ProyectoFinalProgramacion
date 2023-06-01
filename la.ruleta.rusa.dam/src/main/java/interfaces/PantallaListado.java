@@ -62,7 +62,7 @@ public class PantallaListado extends JPanel {
 		gridBagLayout.rowHeights = new int[]{157, 0, 0, 0, 0};
 		gridBagLayout.columnWidths = new int[]{157, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
-		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 0.0, 1.0, 1.0};
+		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0};
 		contenedorPanel.add(elementoListaAnime);
 		
 		JButton buttonVerDetalle = new JButton("Ver Detalle");
@@ -77,7 +77,7 @@ public class PantallaListado extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(0).getGenero()+"", (short)a.get(0).getDuracion(), a.get(0).getStreaming(), 
+				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(0).getNombre(),a.get(0).getGenero(), (short)a.get(0).getDuracion(), a.get(0).getStreaming(), 
 						(byte)a.get(0).getTemporadas(),(short) a.get(0).getEpisodios()),"Informacion del anime",JOptionPane.INFORMATION_MESSAGE);
 				
 			}
@@ -121,7 +121,7 @@ public class PantallaListado extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(1).getGenero()+"", (short)a.get(1).getDuracion(), a.get(1).getStreaming(), 
+				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(1).getNombre(),a.get(1).getGenero(), (short)a.get(1).getDuracion(), a.get(1).getStreaming(), 
 						(byte)a.get(1).getTemporadas(),(short) a.get(1).getEpisodios()),"Informacion del anime",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -156,7 +156,7 @@ public class PantallaListado extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(2).getGenero()+"", (short)a.get(2).getDuracion(), a.get(2).getStreaming(), 
+				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(2).getNombre(),a.get(2).getGenero(), (short)a.get(2).getDuracion(), a.get(2).getStreaming(), 
 						(byte)a.get(2).getTemporadas(),(short) a.get(2).getEpisodios()),"Informacion del anime",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -191,7 +191,7 @@ public class PantallaListado extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(3).getGenero()+"", (short)a.get(3).getDuracion(), a.get(3).getStreaming(), 
+				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(3).getNombre(),a.get(3).getGenero(), (short)a.get(3).getDuracion(), a.get(3).getStreaming(), 
 						(byte)a.get(3).getTemporadas(),(short) a.get(3).getEpisodios()),"Informacion del anime",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -226,7 +226,7 @@ public class PantallaListado extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(4).getGenero()+"", (short)a.get(4).getDuracion(), a.get(4).getStreaming(), 
+				JOptionPane.showMessageDialog(v, new InformacionAnime(a.get(4).getNombre(),a.get(4).getGenero(), (short)a.get(4).getDuracion(), a.get(4).getStreaming(), 
 						(byte)a.get(4).getTemporadas(),(short) a.get(4).getEpisodios()),"Informacion del anime",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

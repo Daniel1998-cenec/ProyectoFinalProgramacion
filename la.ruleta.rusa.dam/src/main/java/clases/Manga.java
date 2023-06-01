@@ -51,7 +51,7 @@ public class Manga extends Obra implements Comparable<String>{
 		this.capitulos = capitulos;
 	}
 	
-	public String isEnCurso() {
+	public String getEnCurso() {
 		return enCurso;
 	}
 

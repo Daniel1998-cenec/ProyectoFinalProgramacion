@@ -64,24 +64,27 @@ public class PantallaLogin extends JPanel {
 		
 		JLabel LabelEmail = new JLabel("Correo");
 		LabelEmail.setBackground(new Color(255, 128, 128));
-		LabelEmail.setForeground(Color.MAGENTA);
-		LabelEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		LabelEmail.setForeground(Color.BLACK);
+		LabelEmail.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		add(LabelEmail);
 
 		textLogin = new JTextField();
+		textLogin.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		add(textLogin);
 		textLogin.setColumns(10);
 		
 		JLabel LabelPass = new JLabel("Contraseña");
 		LabelPass.setBackground(Color.MAGENTA);
-		LabelPass.setForeground(Color.MAGENTA);
-		LabelPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		LabelPass.setForeground(Color.BLACK);
+		LabelPass.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		add(LabelPass);
 
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		add(passwordField);
 
 		JButton Registro = new JButton("Registro");
+		Registro.setBackground(SystemColor.activeCaption);
 		Registro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -90,6 +93,7 @@ public class PantallaLogin extends JPanel {
 		});
 		
 				JButton ButtonAceptar = new JButton("Aceptar");
+				ButtonAceptar.setBackground(SystemColor.activeCaption);
 				ButtonAceptar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
@@ -122,9 +126,9 @@ public class PantallaLogin extends JPanel {
 						}
 					}
 				});
-				ButtonAceptar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				ButtonAceptar.setFont(new Font("Tahoma", Font.PLAIN, 25));
 				add(ButtonAceptar);
-		Registro.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		Registro.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		add(Registro);
 	}
 

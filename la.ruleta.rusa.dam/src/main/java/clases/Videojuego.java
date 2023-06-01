@@ -64,7 +64,7 @@ public class Videojuego extends Obra implements Comparable<String>{
 		this.tiendaDescuento = tiendaDescuento;
 	}
 	
-	public String getplataforma() {
+	public String getPlataforma() {
 		return plataforma;
 	}
 	

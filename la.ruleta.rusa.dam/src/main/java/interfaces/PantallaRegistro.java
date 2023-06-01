@@ -30,6 +30,7 @@ import javax.swing.JRadioButton;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JPasswordField;
+import java.awt.SystemColor;
 
 public class PantallaRegistro extends JPanel {
 	
@@ -123,6 +124,7 @@ public class PantallaRegistro extends JPanel {
 		add(textPass, gbc_textPass);
 		
 		JButton botonCancelar = new JButton("Cancelar");
+		botonCancelar.setBackground(SystemColor.activeCaption);
 		botonCancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -167,6 +169,7 @@ public class PantallaRegistro extends JPanel {
 		add(botonCancelar, gbc_botonCancelar);
 		
 		JButton botonRegistrarse = new JButton("Registrar");
+		botonRegistrarse.setBackground(SystemColor.activeCaption);
 		botonRegistrarse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -194,6 +197,7 @@ public class PantallaRegistro extends JPanel {
 		add(botonRegistrarse, gbc_botonRegistrarse);
 		
 		JButton botonLimpiarDatos = new JButton("Limpiar datos");
+		botonLimpiarDatos.setBackground(SystemColor.activeCaption);
 		botonLimpiarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
