@@ -91,6 +91,7 @@ public class Usuario {
         DAO.insert("user",cols);
         this.nick = nick;
         this.email = email;
+        
     }
    
     //TODO volver para terminar esto
@@ -117,8 +118,8 @@ public class Usuario {
                 System.out.println(result);
                 throw new ContraseñaInvalidaException("La contraseña introducida no coincide");
             } else {
-                this.email = (String) result.get(0);
-                this.nick = (String) result.get(2);
+                this.email = result.get(0)+"";
+                this.nick = result.get(2)+"";
             }
            
         }

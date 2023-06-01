@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import clases.Usuario;
+import excepciones.CamposVacioException;
 
 import javax.swing.JRadioButton;
 import javax.imageio.ImageIO;
@@ -178,15 +179,21 @@ public class PantallaRegistro extends JPanel {
 					String email=textEmail.getText().toString();
 					String pass=new String(textPass.getPassword());
 					String nick=textNick.getText();
-					
+					if(email.equals("")||pass.equals("")||nick.equals("")) {
+						throw new CamposVacioException("No dejes los campos vacios, relleno y continua");
+					}
 					new Usuario(email, nick, pass);
 					JOptionPane.showMessageDialog(ventana, "Registrado correctamente", "Éxito",JOptionPane.INFORMATION_MESSAGE);
 				ventana.cambiarPantalla(PantallaLogin.class);
+				
 				} catch (SQLIntegrityConstraintViolationException e2) {
 					JOptionPane.showMessageDialog(ventana,"El email ya existe", "No se pudo registrar", JOptionPane.ERROR_MESSAGE);
 				} catch (SQLException e1) {
 					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "No se puede conectar a la BD", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
+				} catch(CamposVacioException e3) {
+					JOptionPane.showMessageDialog(ventana, "Has dejado los campos vacios", "Rellena los campos",JOptionPane.ERROR_MESSAGE);
+					e3.printStackTrace();
 				}
 			}
 		});

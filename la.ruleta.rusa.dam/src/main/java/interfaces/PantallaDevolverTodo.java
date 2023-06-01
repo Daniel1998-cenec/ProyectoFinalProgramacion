@@ -37,10 +37,10 @@ public class PantallaDevolverTodo extends JPanel {
 		setBackground(new Color(192, 192, 192));
 		this.ventana=v;
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 116, 0};
+		gridBagLayout.columnWidths = new int[]{61, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 64, 0, 116, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0};
-		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel labelIntroduccion = new JLabel("Bienvenido a la Beta de la app de la Ruleta Rusa");
@@ -52,7 +52,7 @@ public class PantallaDevolverTodo extends JPanel {
 		gbc_labelIntroduccion.gridy = 0;
 		add(labelIntroduccion, gbc_labelIntroduccion);
 		
-		JButton btbuttonObraVista = new JButton("Obra vista");
+		JButton btbuttonObraVista = new JButton("Mi lista");
 		btbuttonObraVista.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -125,8 +125,6 @@ public class PantallaDevolverTodo extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
 			}
 		});
 		GridBagConstraints gbc_buttonEnseñarTodo = new GridBagConstraints();
@@ -152,11 +150,11 @@ public class PantallaDevolverTodo extends JPanel {
 		
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridwidth = 3;
-		gbc_scrollPane.gridheight = 3;
+		gbc_scrollPane.gridheight = 2;
 		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 1;
-		gbc_scrollPane.gridy = 3;
+		gbc_scrollPane.gridy = 4;
 		add(scrollPane, gbc_scrollPane);
 		
 		
